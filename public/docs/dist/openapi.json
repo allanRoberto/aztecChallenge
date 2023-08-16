@@ -1,0 +1,422 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API AZTEC CHALLENGE",
+        "description": "Api desenvolvida para atender o desafio proposto pela empresa AZTEC",
+        "contact": {
+            "email": "allan.rsti@gmail.com",
+            "name": "Allan Roberto Silva"
+        },
+        "version": "0.1"
+    },
+    "paths": {
+        "/product/all": {
+            "get": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Exibe todos os produtos cadastrados",
+                "operationId": "ccb6903d4c594b3fa02242f169d63072",
+                "responses": {
+                    "200": {
+                        "description": "Exibe os produtos cadastrados no banco de dados"
+                    }
+                }
+            }
+        },
+        "/product/": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Cria um novo produto",
+                "operationId": "4cb70fc949686fc04d6fd827face73cc",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Sabonete Dove"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Já existe uma produto com esse nome!"
+                    }
+                }
+            }
+        },
+        "/product/{id}": {
+            "put": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Atualiza um novo produto",
+                "operationId": "063ca29470d3d66665e9e7eef4a11d02",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da produto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Sabonete Dove"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Ocorreu um erro ao executar a ação, tente novamente mais tarde!"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Excluir o produto",
+                "operationId": "a8bc017dfc663b00daeb6f5fd6587d1d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da produto",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Ocorreu um erro ao executar a ação, tente novamente mais tarde!"
+                    }
+                }
+            }
+        },
+        "/shopping-list/all": {
+            "get": {
+                "tags": [
+                    "shopping-list"
+                ],
+                "summary": "Exibe todas as listas de compras",
+                "operationId": "a276ff3d87c2045058707e606da9fda4",
+                "responses": {
+                    "200": {
+                        "description": "Exibe as listas de compras cadastradas no banco de dados"
+                    }
+                }
+            }
+        },
+        "/shopping-list/": {
+            "post": {
+                "tags": [
+                    "shopping-list"
+                ],
+                "summary": "Cria uma nova lista de compras",
+                "operationId": "cd8e63ff53a67fa3b49948a7fe50cfbd",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Supermercado"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Já existe uma lista de compras com essa descrição!"
+                    }
+                }
+            }
+        },
+        "/shopping-list/{id}": {
+            "put": {
+                "tags": [
+                    "shopping-list"
+                ],
+                "summary": "Atualiza uma lista de compras",
+                "operationId": "a89a8aaad6bc7b63c4020a9015828265",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da lista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Supermercado"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Já existe uma lista de compras com essa descrição!"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "shopping-list"
+                ],
+                "summary": "Duplica uma lista de compras",
+                "operationId": "3ba3b23ce30b443c9353d94c75398eaa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da lista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Ocorreu um erro ao realizar a ação tente novamente mais tarde!"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "shopping-list"
+                ],
+                "summary": "Exclui uma lista de compras",
+                "operationId": "577604b4b4f969ab3a1db87ea01b7beb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da lista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Ocorreu um erro ao realizar a ação tente novamente mais tarde!"
+                    }
+                }
+            }
+        },
+        "/shopping-list/{id}/add-item": {
+            "post": {
+                "tags": [
+                    "shopping-list"
+                ],
+                "summary": "Adiciona um item, ou aumenta a quantidade dele na lista de compras",
+                "operationId": "8a731c446d50ecaf89ae912f6df51f6f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da lista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "idProduct": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "qty": {
+                                        "type": "integer",
+                                        "example": "2"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Ocorreu um erro ao realizar a ação tente novamente mais tarde!"
+                    }
+                }
+            }
+        },
+        "/shopping-list/{id}/remove-item": {
+            "post": {
+                "tags": [
+                    "shopping-list"
+                ],
+                "summary": "Exclui um item, ou diminui a quantidade dele na lista de compras",
+                "operationId": "1e0fc73b78728d67b8555a2ab8018721",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da lista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "idProduct": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "qty": {
+                                        "type": "integer",
+                                        "example": "2"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Ocorreu um erro ao realizar a ação tente novamente mais tarde!"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "shopping-list"
+                ],
+                "summary": "Exclui um item na lista de compras",
+                "operationId": "c83559ff10227c79cf9fb18ad2801f42",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da lista",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "idItem": {
+                                        "type": "string",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Nenhum dado retornado"
+                    },
+                    "400": {
+                        "description": "Ocorreu um erro ao realizar a ação tente novamente mais tarde!"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "product",
+            "description": "Operações relacionadas ao produtos"
+        },
+        {
+            "name": "shopping-list",
+            "description": "Operações relacionadas ao cadastro de listas de compras"
+        }
+    ]
+}
