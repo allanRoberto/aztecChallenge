@@ -18,7 +18,7 @@ Aplicação criada para o desafio proposto pela empresa Aztec.
 3. Clone o repositório da aplicação usando o Git:
 
    ```sh
-   git clone https://github.com/allanRoberto/aztec_challenge.git
+   git clone https://github.com/allanRoberto/aztecChallenge.git
    ```
 
 ### Passo 2: Iniciar o Servidor Web Integrado do PHP
