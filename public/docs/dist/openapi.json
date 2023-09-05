@@ -217,12 +217,12 @@
                     }
                 }
             },
-            "post": {
+            "delete": {
                 "tags": [
                     "shopping-list"
                 ],
-                "summary": "Duplica uma lista de compras",
-                "operationId": "3ba3b23ce30b443c9353d94c75398eaa",
+                "summary": "Exclui uma lista de compras",
+                "operationId": "577604b4b4f969ab3a1db87ea01b7beb",
                 "parameters": [
                     {
                         "name": "id",
@@ -242,13 +242,15 @@
                         "description": "Ocorreu um erro ao realizar a ação tente novamente mais tarde!"
                     }
                 }
-            },
-            "delete": {
+            }
+        },
+        "/shopping-list/{id}/duplicate": {
+            "post": {
                 "tags": [
                     "shopping-list"
                 ],
-                "summary": "Exclui uma lista de compras",
-                "operationId": "577604b4b4f969ab3a1db87ea01b7beb",
+                "summary": "Duplica uma lista de compras",
+                "operationId": "61221e78ff83a548151836d7959f7419",
                 "parameters": [
                     {
                         "name": "id",
