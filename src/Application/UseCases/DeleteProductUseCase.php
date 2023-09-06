@@ -11,13 +11,12 @@
 
     public function execute(string $id) {
 
-      //Verificar se existe uma lista com esse ID;
+      //Verificar se existe um produto com esse ID;
       $foundProduct = $this->productRepository->findById($id);
 
-
-      if(!$foundproduct) 
-        throw Error('Lista de compras não encontrada!');
+      if(!$foundProduct) throw new \Exception('Produto não encontrado');
       
-      $this->productRepository->delete($foundProduct['id']);
+        $this->productRepository->delete($foundProduct['id']);
+      
     }
   }

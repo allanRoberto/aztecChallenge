@@ -113,7 +113,11 @@ final class SQLiteProductRepository implements ProductRepository
             $stmt->execute();
 
             $result = $stmt->fetchAll();
-            return $result[0];
+
+            if(sizeof($result)) return $result[0];
+
+          return false;
+          
         } catch (\Exception $error) {
         throw new \Exception("Ocorreu um erro ao processar essa ação, tente novamente mais tarde!");
       }

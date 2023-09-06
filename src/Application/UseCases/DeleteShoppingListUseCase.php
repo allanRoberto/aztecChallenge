@@ -14,9 +14,8 @@
       //Verificar se existe uma lista com esse ID;
       $foundShoppingList = $this->shoppingListRepository->findById($id);
 
-
-      if(!$foundShoppingList) 
-        throw Error('Lista de compras não encontrada!');
+      if(!$foundShoppingList) throw new \Exception('Lista de compras não encontrada');
+        
       
       $this->shoppingListRepository->delete($foundShoppingList['id']);
     }

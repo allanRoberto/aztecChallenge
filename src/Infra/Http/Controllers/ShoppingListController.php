@@ -177,7 +177,7 @@ class ShoppingListController
 
     /**
      * @OA\Post(
-     *     path="/shopping-list/{id}",
+     *     path="/shopping-list/{id}/duplicate",
      *      tags={"shopping-list"},
      *     summary="Duplica uma lista de compras",
      *      @OA\Parameter(

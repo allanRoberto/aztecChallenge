@@ -120,7 +120,10 @@ final class SQLiteShoppingListRepository implements ShoppingListRepository
             $stmt->execute();
 
             $result = $stmt->fetchAll();
-            return $result[0];
+
+            if(sizeof($result)) return $result[0];
+
+          return false;
         } catch (\Exception $error) {
             throw new Exception(
                 "Ocorreu um erro ao realizar a ação, tente novamente mais tarde!"

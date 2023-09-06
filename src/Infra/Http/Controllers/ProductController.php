@@ -32,6 +32,7 @@
      * )
      */
     public function findAll(Request $request, Response $response, $args) {
+      try{
       
       $getProducts = new GetAllProductUseCase(new SQLiteProductRepository($this->db));
 
@@ -39,7 +40,13 @@
       $response->getBody()->write(json_encode($data));
       
       return $response->withHeader('Content-Type', 'application/json');
+      }catch (\Exception $e) {
+            $errorMessage = $e->getMessage();
+            $responseBody = ["error" => $errorMessage];
+            return $response->withJson($responseBody, 500);
+        }
     }
+
 
     /**
     * @OA\Post(
@@ -61,13 +68,18 @@
      */
 
     public function create(Request $request, Response $response, $args) {
+      try{
 
       $data = $request->getParsedBody();
       $product = new CreateProductUseCase(new SQLiteProductRepository($this->db));
       $product->execute($data['name']);
       return $response->withStatus(201);
-    }
-
+      }catch (\Exception $e) {
+            $errorMessage = $e->getMessage();
+            $responseBody = ["error" => $errorMessage];
+            return $response->withJson($responseBody, 500);
+        }
+      }
     /**
     * @OA\Put(
      *     path="/product/{id}",
@@ -94,7 +106,7 @@
      * )
      */
     public function update(Request $request, Response $response, $args){
-
+      try {
       $data = $request->getParsedBody();
 
       $id = $args['id'];
@@ -103,9 +115,12 @@
       $updateProduct->execute($id, $name);
             return $response->withStatus(201);
 
-
-    }
-
+    }catch (\Exception $e) {
+            $errorMessage = $e->getMessage();
+            $responseBody = ["error" => $errorMessage];
+            return $response->withJson($responseBody, 500);
+        }
+      }
     /**
     * @OA\Delete(
      *     path="/product/{id}",
@@ -127,7 +142,7 @@
      * )
      */
     public function delete(Request $request, Response $response, $args){
-
+      try {
       $data = $request->getParsedBody();
 
       $id = $args['id'];
@@ -135,7 +150,11 @@
       $deleteProduct = new DeleteProductUseCase(new SQLiteProductRepository($this->db));
       $deleteProduct->execute($id);
             return $response->withStatus(201);
-
+      }catch (\Exception $e) {
+            $errorMessage = $e->getMessage();
+            $responseBody = ["error" => $errorMessage];
+            return $response->withJson($responseBody, 500);
+        }
 
     }
 

@@ -16,10 +16,10 @@
 
 
       if(!$foundProduct) 
-        throw Error('Lista de compras não encontrada!');
+        throw new \Exception('Lista de compras não encontrada!');
       
       if($name === $foundProduct['name'])
-        throw Error('O nome da lista de compras não foi alterado!');
+        throw new \Exception('O nome da lista de compras não foi alterado!');
     
       $this->productRepository->update($foundProduct['id'], $name);
     }
